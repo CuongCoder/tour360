@@ -1,28 +1,55 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      <transition name="tray">
+        <router-view ></router-view>
+      </transition>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+  name: "app",
+  components: {},
+  methods: {}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  
+  @font-face {
+    font-family: myFirstFont;
+    src: url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+  }
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-family: myFirstFont;
+  }
+
+  #app {
+    width: 100%;
+    height: 100%;
+  }
+
+  .tray-enter,
+  .tray-leave-to {
+    opacity: 0;
+    display: none;
+  }
+
+  .tray-leave,
+  .tray-enter-to {
+    opacity: 1;
+  }
+
+  .tray-enter-active,
+  .tray-leave-active {
+    transition: opacity 300ms;
+  }
 </style>
